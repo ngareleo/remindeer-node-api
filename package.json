@@ -4,8 +4,9 @@
   "description": "A node api for the remindeer project",
   "main": "./app/app.ts",
   "scripts": {
-    "build": "npm run build",
-    "test": "npm run dev"
+    "build": "npx tsc",
+    "dev": "nodemon --exec 'npx tsc && node ./bin/www'",
+    "start": "npx tsc && node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -29,9 +30,11 @@
     "@types/morgan": "^1.9.4",
     "@types/node": "^20.4.2",
     "debug": "^4.3.4",
+    "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-slow-down": "^1.6.0",
     "http-errors": "^2.0.0",
+    "mongoose": "^7.3.4",
     "morgan": "^1.10.0",
     "typescript": "^5.1.6"
   },
@@ -42,8 +45,7 @@
     "ext": "ts js json",
     "watch": [
       "app",
-      "dist",
-      "bin"
+      "node_modules"
     ]
   }
 }
