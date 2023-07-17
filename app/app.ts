@@ -5,10 +5,8 @@ import slowDown = require("express-slow-down");
 
 import createAppConfig from "./server/config/config";
 import { handle404 } from "./server/middleware/error-handling.middleware";
-
 import apiRouter from "./server/routes/api";
 import appRouter from "./server/routes/app";
-
 import { connectToDatabase } from "./server/config/config";
 
 const app: Express = express();

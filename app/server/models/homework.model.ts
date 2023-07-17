@@ -1,11 +1,17 @@
 import { Schema, model } from "mongoose";
+import { UnitType } from "./unit.model";
+import { SemesterType } from "./semester.model";
+import { UserType } from "./user.model";
 
 export interface HomeworkType {
-  id: number;
+  _id: string;
   label: string;
-  description: string;
+  description: string | null;
   due: Date;
-  completed: Date;
+  unit: UnitType | null;
+  semester: SemesterType | null;
+  completed: Date | null;
+  owner: UserType;
   created_at: Date;
   updated_at: Date;
 }
@@ -18,12 +24,25 @@ const Homework = new Schema({
   description: {
     type: String,
   },
+  unit: {
+    type: Schema.Types.ObjectId,
+    ref: "Unit",
+  },
+  semester: {
+    type: Schema.Types.ObjectId,
+    ref: "Semester",
+  },
   due: {
     type: Date,
     required: true,
   },
   completed: {
     type: Date,
+  },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
   },
   created_at: {
     type: Date,

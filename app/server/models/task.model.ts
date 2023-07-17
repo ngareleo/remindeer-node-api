@@ -1,13 +1,22 @@
 import { Schema, model } from "mongoose";
+import { TimetableType } from "./timetable.model";
+import { UnitType } from "./unit.model";
+import { SemesterType } from "./semester.model";
+import { UserType } from "./user.model";
 
 export interface TaskType {
   id: number;
   label: string;
-  description: string;
+  venue: string | null;
+  description: string | null;
   repeat: boolean;
   due: Date;
-  completed: Date;
+  completed: Date | null;
+  timetable: TimetableType | null;
+  unit: UnitType | null;
+  semester: SemesterType | null;
   repeat_to: Date;
+  owner: UserType;
   created_at: Date;
   updated_at: Date;
 }
@@ -24,6 +33,9 @@ const Task = new Schema({
     type: Boolean,
     required: true,
   },
+  venue: {
+    type: String,
+  },
   due: {
     type: Date,
     required: true,
@@ -33,6 +45,23 @@ const Task = new Schema({
   },
   repeat_to: {
     type: Date,
+  },
+  semester: {
+    type: Schema.Types.ObjectId,
+    ref: "Semester",
+  },
+  unit: {
+    type: Schema.Types.ObjectId,
+    ref: "Unit",
+  },
+  timetable: {
+    type: Schema.Types.ObjectId,
+    ref: "Timetable",
+  },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
+    required: true,
   },
   created_at: {
     type: Date,

@@ -1,11 +1,13 @@
 import { Schema, model } from "mongoose";
+import { UserType } from "./user.model";
 
 export interface SemesterType {
   id: number;
   label: string;
-  description: string;
+  description: string | null;
   from: Date;
   to: Date;
+  owner: UserType;
   created_at: Date;
   updated_at: Date;
 }
@@ -17,7 +19,6 @@ const Semester = new Schema({
   },
   description: {
     type: String,
-    required: true,
   },
   from: {
     type: Date,
@@ -25,6 +26,11 @@ const Semester = new Schema({
   },
   to: {
     type: Date,
+    required: true,
+  },
+  owner: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
     required: true,
   },
   created_at: {

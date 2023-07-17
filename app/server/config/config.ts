@@ -1,6 +1,7 @@
 require("dotenv").config();
 import mongoose from "mongoose";
 import env from "./env.config";
+import { AppConfig } from "../../types";
 
 export default function createAppConfig(): AppConfig {
   return {

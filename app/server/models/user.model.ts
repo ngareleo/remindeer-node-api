@@ -7,6 +7,8 @@ export interface UserType {
   password: string;
   photo: string;
   phone_number: string;
+  created_at: Date;
+  updated_at: Date;
 }
 
 const User = new Schema({
@@ -36,6 +38,14 @@ const User = new Schema({
   phone_number: {
     type: String,
     unique: true,
+  },
+  created_at: {
+    type: Date,
+    default: Date.now,
+  },
+  updated_at: {
+    type: Date,
+    default: Date.now,
   },
 });
 
