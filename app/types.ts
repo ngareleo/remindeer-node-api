@@ -1,14 +1,20 @@
-type AppConfig = {
+export type AppConfig = {
   speedLimiter: SpeedLimitConfig;
   jsonConfig: JsonConfig;
 };
 
-type SpeedLimitConfig = {
+export type SpeedLimitConfig = {
   windowMs: number;
   delayAfter: number;
   delayMs: number;
 };
 
-type JsonConfig = {
+export type JsonConfig = {
   limit: string;
+};
+
+export type Window = {
+  allDay: boolean;
+  from: Date;
+  to: Date;
 };
