@@ -34,11 +34,11 @@ const Lecture = new Schema({
   description: {
     type: String,
   },
-  unit: {
+  unit_id: {
     type: Schema.Types.ObjectId,
     ref: "Unit",
   },
-  timetable: {
+  timetable_id: {
     type: Schema.Types.ObjectId,
     ref: "Timetable",
   },

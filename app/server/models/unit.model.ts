@@ -3,7 +3,7 @@ import { SemesterType } from "./semester.model";
 import { UserType } from "./user.model";
 
 export interface UnitType {
-  id: number;
+  _id: number;
   label: string;
   unit_code: string;
   description: string | null;
@@ -30,7 +30,7 @@ const Unit = new Schema({
     type: String,
     required: true,
   },
-  semester: {
+  semester_id: {
     type: Schema.Types.ObjectId,
     ref: "Semester",
     required: true,

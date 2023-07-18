@@ -43,15 +43,15 @@ const Event = new Schema({
   venue: {
     type: String,
   },
-  unit: {
+  unit_id: {
     type: Schema.Types.ObjectId,
     ref: "Unit",
   },
-  semester: {
+  semester_id: {
     type: Schema.Types.ObjectId,
     ref: "Semester",
   },
-  timetable: {
+  timetable_id: {
     type: Schema.Types.ObjectId,
     ref: "Timetable",
   },

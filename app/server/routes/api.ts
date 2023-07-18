@@ -7,6 +7,6 @@ const apiRouter = Router();
 
 apiRouter.use("/api", usersRouter);
 apiRouter.use("/api", indexRouter);
-apiRouter.use("/api", sharingRouter);
+apiRouter.use("/api/share", sharingRouter);
 
 export default apiRouter;
