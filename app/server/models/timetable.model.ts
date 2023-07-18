@@ -38,7 +38,7 @@ const Timetable = new Schema({
     type: Date,
     required: true,
   },
-  semester: {
+  semester_id: {
     type: Schema.Types.ObjectId,
     ref: "Semester",
     required: true,

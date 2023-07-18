@@ -13,18 +13,15 @@ const app: Express = express();
 const { speedLimiter: speedLimiterOptions, jsonConfig } = createAppConfig();
 connectToDatabase();
 
-// middleware
 app.use(slowDown(speedLimiterOptions));
 app.use(morgan("common"));
 app.use(express.json(jsonConfig));
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: false }));
 
-// routes
 app.use(apiRouter);
 app.use(appRouter);
 
-// errors
 app.use(handle404);
 
 module.exports = app;

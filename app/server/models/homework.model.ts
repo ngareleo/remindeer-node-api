@@ -24,11 +24,11 @@ const Homework = new Schema({
   description: {
     type: String,
   },
-  unit: {
+  unit_id: {
     type: Schema.Types.ObjectId,
     ref: "Unit",
   },
-  semester: {
+  semester_id: {
     type: Schema.Types.ObjectId,
     ref: "Semester",
   },

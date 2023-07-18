@@ -27,7 +27,6 @@ export const userLoginController = async (req: Request, res: Response) => {
       .equals(username)
       .where("password")
       .equals(password);
-    console.log("User is ", user);
 
     if (!user) {
       res.status(200).send("User not found!");
@@ -55,7 +54,6 @@ export const userPostController = async (req: Request, res: Response) => {
     await user
       .save()
       .then((user) => {
-        console.log(user);
         res.json(user);
       })
       .catch((err) => {

@@ -46,15 +46,15 @@ const Task = new Schema({
   repeat_to: {
     type: Date,
   },
-  semester: {
+  semester_id: {
     type: Schema.Types.ObjectId,
     ref: "Semester",
   },
-  unit: {
+  unit_id: {
     type: Schema.Types.ObjectId,
     ref: "Unit",
   },
-  timetable: {
+  timetable_id: {
     type: Schema.Types.ObjectId,
     ref: "Timetable",
   },
